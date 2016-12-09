@@ -1,5 +1,12 @@
-require "bankin/version"
+require 'bankin/version'
+require 'bankin/configuration'
+require 'bankin/base'
+require 'bankin/error'
+require 'bankin/resource'
+require 'bankin/collection'
 
-module Bankin
-  # Your code goes here...
-end
+require 'bankin/resources/bank'
+require 'bankin/resources/user'
+require 'bankin/resources/item'
+require 'bankin/resources/account'
+require 'bankin/resources/transaction'
