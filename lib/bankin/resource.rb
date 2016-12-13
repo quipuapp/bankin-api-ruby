@@ -1,7 +1,7 @@
 module Bankin
   class Resource
-    def initialize(data, user = nil)
-      @user = user
+    def initialize(data, token = nil)
+      @token = token
       generate_attr_readers
       set_data(data)
     end
@@ -45,13 +45,13 @@ module Bankin
       resources.each do |resource|
         next unless data.key?(resource[:name].to_s)
         klass = Object.const_get("Bankin::#{resource[:klass]}")
-        instance_variable_set("@#{resource[:name]}", klass.new(data[resource[:name].to_s], @user))
+        instance_variable_set("@#{resource[:name]}", klass.new(data[resource[:name].to_s], @token))
       end
 
       collections.each do |collection|
         next unless data[collection[:name].to_s]
         klass = Object.const_get("Bankin::#{collection[:klass]}")
-        arr = data[collection[:name].to_s].map { |item | klass.new(item, @user) }
+        arr = data[collection[:name].to_s].map { |item | klass.new(item, @token) }
         instance_variable_set("@#{collection[:name]}", arr)
         instance_variable_set("@#{collection[:name]}_ids", arr.map(&:id))
       end
@@ -59,7 +59,7 @@ module Bankin
 
     def load_data!
       return if @loaded
-      response = Bankin.api_call(:get, @resource_uri, {}, @user.token)
+      response = Bankin.api_call(:get, @resource_uri, {}, @token)
       set_data(response)
       @loaded = true
     end
@@ -77,19 +77,15 @@ module Bankin
         @collections || []
       end
 
-      def auth_resources
-        @auth_resources || []
-      end
-
       def auth_delegate(name, options)
         define_method(name) do |*args|
           klass = Object.const_get("Bankin::#{options[:class]}")
-          klass.send(options[:method], self, *args)
+          klass.send(options[:method], self.token, *args)
         end
       end
 
       def has_fields(*new_fields)
-        @fields = fields + new_fields
+        @fields = (fields + new_fields).uniq
       end
 
       def has_resource(name, klass)

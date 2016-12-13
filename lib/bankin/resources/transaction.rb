@@ -7,19 +7,19 @@ module Bankin
 
     has_resource :account, 'Account'
 
-    def self.list(user, options = {})
-      response = Bankin.api_call(:get, RESOURCE_PATH, options, user.token)
-      Collection.new(response, self, user)
+    def self.list(token, options = {})
+      response = Bankin.api_call(:get, RESOURCE_PATH, options, token)
+      Collection.new(response, self, token)
     end
 
-    def self.list_updated(user, options = {})
-      response = Bankin.api_call(:get, "#{RESOURCE_PATH}/updated", options, user.token)
-      Collection.new(response, self, user)
+    def self.list_updated(token, options = {})
+      response = Bankin.api_call(:get, "#{RESOURCE_PATH}/updated", options, token)
+      Collection.new(response, self, token)
     end
 
-    def self.get(user, id)
-      response = Bankin.api_call(:get, "#{RESOURCE_PATH}/#{id}", {}, user.token)
-      new(response, user)
+    def self.get(token, id)
+      response = Bankin.api_call(:get, "#{RESOURCE_PATH}/#{id}", {}, token)
+      new(response, token)
     end
   end
 end

@@ -33,7 +33,6 @@ module Bankin
       request_params[:headers][:Authorization] = "Bearer #{token}" if token
 
       begin
-        p 'API CALL...'
         response = RestClient::Request.execute(request_params)
         return {} if response.empty?
         data = JSON.parse(response)

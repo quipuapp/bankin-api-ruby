@@ -1,8 +1,8 @@
 module Bankin
   class Collection < Array
-    def initialize(response, item_class, user = nil)
+    def initialize(response, item_class, token = nil)
       @item_class = item_class
-      @user = user
+      @token = token
       populate!(response, item_class)
     end
 
@@ -16,8 +16,7 @@ module Bankin
 
     def next_page!
       return unless next_page?
-      token = @user ? @user.token : nil
-      response = Bankin.api_call(:get, @next_page_uri, {}, token)
+      response = Bankin.api_call(:get, @next_page_uri, {}, @token)
       populate!(response, @item_class)
       self
     end
@@ -33,7 +32,7 @@ module Bankin
 
     def populate!(response, item_klass)
       response['resources'].each do |item|
-        self << item_klass.new(item, @user)
+        self << item_klass.new(item, @token)
       end
 
       set_pagination(response['pagination'])
