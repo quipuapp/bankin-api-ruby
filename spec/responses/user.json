@@ -1,0 +1,6 @@
+{
+  "uuid": "79c8961c-bdf7-11e5-88a3-4f2c2aec0665",
+  "email": "test@example.com",
+  "resource_type": "user",
+  "resource_url": "/v2/users/79c8961c-bdf7-11e5-88a3-4f2c2aec0665"
+}

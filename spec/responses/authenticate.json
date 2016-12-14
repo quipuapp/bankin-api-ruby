@@ -1,0 +1,10 @@
+{
+  "user": {
+    "uuid": "c2a26c9e-dc23-4f67-b887-bbae0f26c415",
+    "email": "test@example.com",
+    "resource_uri": "/v2/users/c2a26c9e-dc23-4f67-b887-bbae0f26c415",
+    "resource_type": "user"
+  },
+  "access_token": ".....",
+  "expires_at": "2016-05-06T11:08:25.040Z"
+}

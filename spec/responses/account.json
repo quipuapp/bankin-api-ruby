@@ -1,0 +1,31 @@
+{
+  "id": 2341501,
+  "name": "Compte Crédit Immobilier",
+  "balance": -140200,
+  "status": 0,
+  "item": {
+    "id": 187746,
+    "resource_uri": "/v2/items/187746",
+    "resource_type": "item"
+  },
+  "bank": {
+    "id": 408,
+    "resource_uri": "/v2/banks/408",
+    "resource_type": "bank"
+  },
+  "last_refresh_date": "2016-04-06T13:53:12Z",
+  "resource_uri": "/v2/accounts/2341501",
+  "resource_type": "account",
+  "loan_details": {
+    "next_payment_date": "2016-04-30",
+    "next_payment_amount": 1000,
+    "maturity_date": "2026-12-31",
+    "opening_date": "2013-01-10",
+    "interest_rate": 1.25,
+    "type": "Prêtimmobilier",
+    "borrowed_capital": 140200,
+    "repaid_capital": 40200,
+    "remaining_capital": 100000
+  },
+  "savings_details": null
+}

@@ -19,7 +19,7 @@ module Bankin
     end
 
     def item_connect_url(bank_id, redirect_url = nil)
-      Item.connect_url(self, bank_id, redirect_url)
+      Item.connect_url(token, bank_id, redirect_url)
     end
 
     def self.list(options = {})

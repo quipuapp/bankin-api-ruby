@@ -2,7 +2,7 @@ module Bankin
   class Account < Resource
     RESOURCE_PATH = '/v2/accounts'
 
-    has_fields :id, :name, :balance, :currency_code, :status, :type, :updated_at
+    has_fields :id, :name, :balance, :currency_code, :status, :type, :last_refresh_date
 
     has_resource :bank, 'Bank'
     has_resource :item, 'Item'

@@ -1,0 +1,29 @@
+{
+  "resources": [
+    {
+      "id": 1000013123932,
+      "description": "Prelevement Spotify SA",
+      "full_description": "Prlv 1512 Spotify SA",
+      "amount": -4.99,
+      "date": "2016-04-06",
+      "update_date": "2016-04-06T09:19:14Z",
+      "is_deleted": false,
+      "category": {
+        "id": 1,
+        "resource_uri": "/v2/categories/1",
+        "resource_type": "category"
+      },
+      "account": {
+        "id": 2341498,
+        "resource_uri": "/v2/accounts/2341498",
+        "resource_type": "account"
+      },
+      "resource_uri": "/v2/transactions/1000013123932",
+      "resource_type": "transaction"
+    }
+  ],
+  "pagination": {
+    "previous_uri": null,
+    "next_uri": "/v2/transactions?after=MjAxNS0xMS0xNjo0NTU3ODE1Mg%3D%3D&limit=12&until=2016-04-06"
+  }
+}

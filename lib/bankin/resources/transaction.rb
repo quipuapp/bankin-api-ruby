@@ -3,7 +3,7 @@ module Bankin
     RESOURCE_PATH = '/v2/transactions'
 
     has_fields :id, :description, :raw_description, :amount, :currency_code,
-      :date, :updated_at, :is_deleted
+      :date, :update_date, :updated_at, :is_deleted
 
     has_resource :account, 'Account'
 

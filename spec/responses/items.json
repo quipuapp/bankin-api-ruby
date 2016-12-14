@@ -1,0 +1,64 @@
+{
+  "resources": [
+    {
+      "id": 123456,
+      "resource_uri": "/v2/items/123456",
+      "resource_type": "item",
+      "status": 0,
+      "bank": {
+        "id": 122,
+        "resource_uri": "/v2/banks/122",
+        "resource_type": "bank"
+      },
+      "accounts": [
+        {
+          "id": 12,
+          "resource_uri": "/v2/accounts/12",
+          "resource_type": "account"
+        },
+        {
+          "id": 34,
+          "resource_uri": "/v2/accounts/34",
+          "resource_type": "account"
+        }
+      ]
+    },
+    {
+      "id": 654321,
+      "resource_uri": "/v2/items/654321",
+      "resource_type": "item",
+      "status": 0,
+      "bank": {
+        "id": 408,
+        "resource_uri": "/v2/banks/408",
+        "resource_type": "bank"
+      },
+      "accounts": [
+        {
+          "id": 65,
+          "resource_uri": "/v2/accounts/65",
+          "resource_type": "account"
+        },
+        {
+          "id": 43,
+          "resource_uri": "/v2/accounts/43",
+          "resource_type": "account"
+        },
+        {
+          "id": 21,
+          "resource_uri": "/v2/accounts/21",
+          "resource_type": "account"
+        },
+        {
+          "id": 90,
+          "resource_uri": "/v2/accounts/90",
+          "resource_type": "account"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "previous_uri": null,
+    "next_uri": null
+  }
+}

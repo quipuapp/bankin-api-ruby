@@ -1,0 +1,20 @@
+{
+  "resources": [
+    {
+      "uuid": "d3751ede-cb1e-4d49-bd59-69917021540e",
+      "email": "john.doe@email.com",
+      "resource_uri": "/v2/users/d3751ede-cb1e-4d49-bd59-69917021540e",
+      "resource_type": "user"
+    },
+    {
+      "uuid": "79c8961c-bdf7-11e5-88a3-4f2c2aec0665",
+      "email": "test@example.com",
+      "resource_type": "user",
+      "resource_url": "/v2/users/79c8961c-bdf7-11e5-88a3-4f2c2aec0665"
+    }
+  ],
+  "pagination": {
+    "previous_uri": null,
+    "next_uri": "/v2/users?after=ZDM3NTFlZGUtY2IxZS00ZDQ5LWJkNTktNjk5MTcwMjE1NDBl&limit=100"
+  }
+}
