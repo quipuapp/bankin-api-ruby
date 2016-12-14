@@ -1,0 +1,52 @@
+{
+  "resources": [
+    {
+      "id": 59,
+      "name": "Crédit Agricole Corse",
+      "form": [
+        {
+          "label": "N° de Compte",
+          "type": "USER",
+          "isNum": "1",
+          "maxLength": null
+        },
+        {
+          "label": "Code Personnel",
+          "type": "PWD",
+          "isNum": "1",
+          "maxLength": null
+        }
+      ],
+      "country_code": "FR",
+      "automatic_refresh": true,
+      "resource_uri": "/v2/banks/59",
+      "resource_type": "bank"
+    },
+    {
+      "id": 64,
+      "name": "Crédit Agricole Languedoc",
+      "form": [
+        {
+          "label": "N° de Compte",
+          "type": "USER",
+          "isNum": "1",
+          "maxLength": null
+        },
+        {
+          "label": "Code Personnel",
+          "type": "PWD",
+          "isNum": "1",
+          "maxLength": null
+        }
+      ],
+      "country_code": "FR",
+      "automatic_refresh": true,
+      "resource_uri": "/v2/banks/64",
+      "resource_type": "bank"
+    }
+  ],
+  "pagination": {
+    "previous_uri": null,
+    "next_uri": "/v2/banks?after=NTk%3D&limit=100"
+  }
+}
