@@ -3,10 +3,11 @@
     {
       "id": 1000013123932,
       "description": "Prelevement Spotify SA",
-      "full_description": "Prlv 1512 Spotify SA",
+      "raw_description": "Prlv 1512 Spotify SA",
       "amount": -4.99,
       "date": "2016-04-06",
-      "update_date": "2016-04-06T09:19:14Z",
+      "updated_at": "2016-04-06T09:19:14Z",
+      "currency_code": "EUR",
       "is_deleted": false,
       "category": {
         "id": 1,

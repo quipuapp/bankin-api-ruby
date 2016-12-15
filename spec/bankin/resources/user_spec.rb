@@ -227,8 +227,9 @@ module Bankin
           expect(@transaction.raw_description).to eq('Paiement Carte 029412 75 monop paris')
           expect(@transaction.amount).to eq(-9.39)
           expect(@transaction.date).to eq('2016-02-22')
-          expect(@transaction.update_date).to eq('2016-02-22T13:27:53Z')
+          expect(@transaction.updated_at).to eq('2016-02-22T13:27:53Z')
           expect(@transaction.is_deleted).to eq(false)
+          expect(@transaction.currency_code).to eq('EUR')
         end
       end
     end

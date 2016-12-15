@@ -4,7 +4,8 @@
   "raw_description": "Paiement Carte 029412 75 monop paris",
   "amount": -9.39,
   "date": "2016-02-22",
-  "update_date": "2016-02-22T13:27:53Z",
+  "updated_at": "2016-02-22T13:27:53Z",
+  "currency_code": "EUR",
   "is_deleted": false,
   "category": {
     "id": 168,
@@ -12,8 +13,8 @@
     "resource_type": "category"
   },
   "account": {
-    "id": 2341339,
-    "resource_uri": "/v2/accounts/2341339",
+    "id": 2341501,
+    "resource_uri": "/v2/accounts/2341501",
     "resource_type": "account"
   },
   "resource_uri": "/v2/transactions/1000013102238",
