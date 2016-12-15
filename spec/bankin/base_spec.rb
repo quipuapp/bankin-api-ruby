@@ -51,7 +51,7 @@ describe Bankin do
     it "should raise Bankin::Error" do
       configure_bankin
 
-      stub_request(:get, "https://sync.bankin.com/v2/not-found?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+      stub_request(:get, "https://sync.bankin.com/v2/not-found?client_id=client-id&client_secret=client-secret").
         with(headers: { 'Bankin-Version' => '2016-01-18' }).
         to_return(status: 404, body: { type: 'not-found', message: 'resource not found' }.to_json)
 

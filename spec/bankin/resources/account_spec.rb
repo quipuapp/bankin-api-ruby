@@ -8,7 +8,7 @@ module Bankin
 
     describe ".get" do
       before do
-        stub_request(:get, "https://sync.bankin.com/v2/accounts/2341501?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+        stub_request(:get, "https://sync.bankin.com/v2/accounts/2341501?client_id=client-id&client_secret=client-secret").
           with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
           to_return(status: 200, body: response_json('account'))
 
@@ -27,7 +27,7 @@ module Bankin
 
     describe ".list" do
       before do
-        stub_request(:get, "https://sync.bankin.com/v2/accounts?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+        stub_request(:get, "https://sync.bankin.com/v2/accounts?client_id=client-id&client_secret=client-secret").
           with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
           to_return(status: 200, body: response_json('accounts'))
 
@@ -45,7 +45,7 @@ module Bankin
 
     describe "related resources" do
       before do
-        stub_request(:get, "https://sync.bankin.com/v2/accounts/2341501?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+        stub_request(:get, "https://sync.bankin.com/v2/accounts/2341501?client_id=client-id&client_secret=client-secret").
           with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
           to_return(status: 200, body: response_json('account'))
 
@@ -63,7 +63,7 @@ module Bankin
         end
 
         it "loads other attributtes" do
-          stub_request(:get, "https://sync.bankin.com/v2/banks/408?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+          stub_request(:get, "https://sync.bankin.com/v2/banks/408?client_id=client-id&client_secret=client-secret").
             with(headers: { 'Bankin-Version'=>'2016-01-18' }).
             to_return(status: 200, body: response_json('bank'))
 
@@ -84,7 +84,7 @@ module Bankin
         end
 
         it "loads other attributtes" do
-          stub_request(:get, "https://sync.bankin.com/v2/items/187791?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+          stub_request(:get, "https://sync.bankin.com/v2/items/187791?client_id=client-id&client_secret=client-secret").
             with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('item'))
 
@@ -92,6 +92,5 @@ module Bankin
         end
       end
     end
-
   end
 end

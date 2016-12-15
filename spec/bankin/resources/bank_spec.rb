@@ -8,7 +8,7 @@ module Bankin
 
     describe ".get" do
       before do
-        stub_request(:get, "https://sync.bankin.com/v2/banks/64?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+        stub_request(:get, "https://sync.bankin.com/v2/banks/64?client_id=client-id&client_secret=client-secret").
           with(headers: { 'Bankin-Version'=>'2016-01-18' }).
           to_return(status: 200, body: response_json('bank'))
 
@@ -26,7 +26,7 @@ module Bankin
 
     describe ".list" do
       before do
-        stub_request(:get, "https://sync.bankin.com/v2/banks?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+        stub_request(:get, "https://sync.bankin.com/v2/banks?client_id=client-id&client_secret=client-secret").
           with(headers: { 'Bankin-Version'=>'2016-01-18' }).
           to_return(status: 200, body: response_json('banks'))
 

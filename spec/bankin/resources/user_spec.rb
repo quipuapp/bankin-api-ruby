@@ -8,7 +8,7 @@ module Bankin
 
     describe ".create" do
       before do
-        stub_request(:post, "https://sync.bankin.com/v2/users?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret&email=test@example.com&password=testpassword").
+        stub_request(:post, "https://sync.bankin.com/v2/users?client_id=client-id&client_secret=client-secret&email=test@example.com&password=testpassword").
           with(headers: { 'Bankin-Version' => '2016-01-18' }).
           to_return(status: 200, body: response_json('user'))
 
@@ -25,7 +25,7 @@ module Bankin
 
     describe ".athenticate" do
       before do
-        stub_request(:post, "https://sync.bankin.com/v2/authenticate?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret&email=test@example.com&password=testpassword").
+        stub_request(:post, "https://sync.bankin.com/v2/authenticate?client_id=client-id&client_secret=client-secret&email=test@example.com&password=testpassword").
           with(headers: { 'Bankin-Version' => '2016-01-18' }).
           to_return(status: 200, body: response_json('authenticate'))
 
@@ -42,7 +42,7 @@ module Bankin
 
     describe ".delete_all" do
       before do
-        stub_request(:delete, "https://sync.bankin.com/v2/users?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+        stub_request(:delete, "https://sync.bankin.com/v2/users?client_id=client-id&client_secret=client-secret").
           with(headers: { 'Bankin-Version' => '2016-01-18' }).
           to_return(status: 204)
       end
@@ -56,7 +56,7 @@ module Bankin
 
     describe ".list" do
       before do
-        stub_request(:get, "https://sync.bankin.com/v2/users?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+        stub_request(:get, "https://sync.bankin.com/v2/users?client_id=client-id&client_secret=client-secret").
           with(headers: { 'Bankin-Version' => '2016-01-18' }).
           to_return(status: 200, body: response_json('users'))
 
@@ -74,7 +74,7 @@ module Bankin
 
     describe "#delete" do
       before do
-        stub_request(:delete, "https://sync.bankin.com/v2/user-uri?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret&password=test-password").
+        stub_request(:delete, "https://sync.bankin.com/v2/user-uri?client_id=client-id&client_secret=client-secret&password=test-password").
           with(headers: { 'Bankin-Version' => '2016-01-18' }).
           to_return(status: 204)
 
@@ -106,7 +106,7 @@ module Bankin
 
       describe "items" do
         before do
-          stub_request(:get, "https://sync.bankin.com/v2/items?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+          stub_request(:get, "https://sync.bankin.com/v2/items?client_id=client-id&client_secret=client-secret").
             with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('items'))
 
@@ -124,7 +124,7 @@ module Bankin
 
       describe "item" do
         before do
-          stub_request(:get, "https://sync.bankin.com/v2/items/187791?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+          stub_request(:get, "https://sync.bankin.com/v2/items/187791?client_id=client-id&client_secret=client-secret").
             with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('item'))
 
@@ -140,7 +140,7 @@ module Bankin
 
       describe "accounts" do
         before do
-          stub_request(:get, "https://sync.bankin.com/v2/accounts?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+          stub_request(:get, "https://sync.bankin.com/v2/accounts?client_id=client-id&client_secret=client-secret").
             with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('accounts'))
 
@@ -158,7 +158,7 @@ module Bankin
 
       describe "account" do
         before do
-          stub_request(:get, "https://sync.bankin.com/v2/accounts/2341501?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+          stub_request(:get, "https://sync.bankin.com/v2/accounts/2341501?client_id=client-id&client_secret=client-secret").
             with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('account'))
 
@@ -177,7 +177,7 @@ module Bankin
 
       describe "transactions" do
         before do
-          stub_request(:get, "https://sync.bankin.com/v2/transactions?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+          stub_request(:get, "https://sync.bankin.com/v2/transactions?client_id=client-id&client_secret=client-secret").
             with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('transactions'))
 
@@ -195,7 +195,7 @@ module Bankin
 
       describe "updated_transactions" do
         before do
-          stub_request(:get, "https://sync.bankin.com/v2/transactions/updated?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+          stub_request(:get, "https://sync.bankin.com/v2/transactions/updated?client_id=client-id&client_secret=client-secret").
             with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('transactions'))
 
@@ -213,7 +213,7 @@ module Bankin
 
       describe "transaction" do
         before do
-          stub_request(:get, "https://sync.bankin.com/v2/transactions/1000013102238?client_id%5B%5D=client-id&client_id%5B%5D=client-secret&client_secret=client-secret").
+          stub_request(:get, "https://sync.bankin.com/v2/transactions/1000013102238?client_id=client-id&client_secret=client-secret").
             with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('transaction'))
 
