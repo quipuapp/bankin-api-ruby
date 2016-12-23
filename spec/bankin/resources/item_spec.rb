@@ -46,6 +46,18 @@ module Bankin
       end
     end
 
+    describe "#edit_url" do
+      before do
+        @item = Item.new('resource_uri' => '/v2/items/187791')
+        @item.instance_variable_set(:@token, 'test-token')
+      end
+
+      it "returns edit item url" do
+        url = @item.edit_url('redirect-url')
+        expect(url).to eq('https://sync.bankin.com/v2/items/187791/edit?client_id=client-id&access_token=test-token&redirect_url=redirect-url')
+      end
+    end
+
     describe "#get_status" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/items/187791/refresh/status?client_id=client-id&client_secret=client-secret").

@@ -19,6 +19,17 @@ module Bankin
       Bankin.api_call(:get, "#{resource_uri}/refresh/status", {}, @token)
     end
 
+    def edit_url(redirect_url = nil)
+      url_parts = [
+        Bankin.const_get(:BASE_URL),
+        resource_uri,
+        "/edit?client_id=#{Bankin.configuration.client_id}",
+        "&access_token=#{@token}"
+      ]
+      url_parts << "&redirect_url=#{redirect_url}" if redirect_url
+      url_parts.join
+    end
+
     def self.connect_url(token, bank_id, redirect_url = nil)
       url_parts = [
         Bankin.const_get(:BASE_URL),
