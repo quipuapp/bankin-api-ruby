@@ -18,7 +18,12 @@ module Bankin
       return unless next_page?
 
       uri = URI.parse(@next_page_uri)
-      params = Hash[URI::decode_www_form(uri.query)]
+      params = if uri.query
+                 Hash[URI::decode_www_form(uri.query)]
+               else
+                 {}
+               end
+
       response = Bankin.api_call(:get, uri.path, params, @token)
       populate!(response, @item_class)
       self

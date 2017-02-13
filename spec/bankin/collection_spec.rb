@@ -83,10 +83,11 @@ module Bankin
     describe "#next_page!" do
       before do
         pagination_data = {
-          'pagination' => { 'previous_uri' => nil, 'next_uri' => '2-page-uri'}
+          'pagination' => { 'previous_uri' => nil, 'next_uri' => '2-page-uri?after=XXX'}
         }
+
         @collection = Collection.new(api_response_resources.merge(pagination_data), TestResource)
-        expect(Bankin).to receive(:api_call).with(:get, '2-page-uri', {}, nil).once {
+        expect(Bankin).to receive(:api_call).with(:get, '2-page-uri', { 'after' => 'XXX' }, nil).once {
           {
             'resources' => [{ 'id' => 3, 'name' => 'name-13'}],
             'pagination' => {'pagination' => { 'previous_uri' => nil, 'next_uri' => nil}}

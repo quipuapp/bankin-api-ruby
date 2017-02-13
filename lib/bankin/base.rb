@@ -4,12 +4,18 @@ require 'json'
 module Bankin
   BASE_URL = 'https://sync.bankin.com'
   API_VERSION = '2016-01-18'
+  RATELIMIT_FIELDS = %w(limit remaining reset)
 
   class << self
     attr_accessor :configuration
 
     def configuration
       @configuration ||= Configuration.new
+    end
+
+
+    def rate_limits
+      @rate_limits ||= Hash[RATELIMIT_FIELDS.map { |f| [f, nil] }]
     end
 
     def configure
@@ -34,12 +40,22 @@ module Bankin
 
       begin
         response = RestClient::Request.execute(request_params)
+        set_rate_limits(response.headers)
+
         return {} if response.empty?
         data = JSON.parse(response)
         return data
       rescue StandardError => e
         response = JSON.parse(e.response)
         raise Error.new(response['type'], response['message'])
+      end
+    end
+
+    def set_rate_limits(headers)
+      @rate_limits ||= {}
+
+      RATELIMIT_FIELDS.each do |field|
+        @rate_limits[field] = headers["ratelimit_#{field}".to_sym]
       end
     end
   end

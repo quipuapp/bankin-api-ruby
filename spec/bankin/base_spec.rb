@@ -25,7 +25,9 @@ describe Bankin do
 
   describe ".api_call" do
     it "should call api with params" do
-      allow(RestClient::Request).to receive(:execute) { {}.to_json }
+      response = RestClient::Response.create({}.to_json, {}, nil, nil)
+
+      allow(RestClient::Request).to receive(:execute) { response }
       expected_params = {
         method: :somemethod,
         url: 'https://sync.bankin.com/somepath',
@@ -44,7 +46,9 @@ describe Bankin do
     end
 
     it "returns parsed object" do
-      allow(RestClient::Request).to receive(:execute) { { key: :val }.to_json }
+      response = RestClient::Response.create({ key: :val }.to_json, {}, nil, nil)
+
+      allow(RestClient::Request).to receive(:execute) { response }
       expect(subject.api_call(:whatever, 'whatever')).to eq({ 'key' => 'val' })
     end
 
@@ -56,6 +60,34 @@ describe Bankin do
         to_return(status: 404, body: { type: 'not-found', message: 'resource not found' }.to_json)
 
       expect { subject.api_call(:get, '/v2/not-found') }.to raise_error(Bankin::Error)
+    end
+
+    it 'calls .set_rate_limits method' do
+      response = RestClient::Response.create({}.to_json, {}, nil, nil)
+      allow(response).to receive(:headers) { { header: 'header' } }
+      allow(RestClient::Request).to receive(:execute) { response }
+
+      expect(subject).to receive(:set_rate_limits).with({ header: 'header' })
+
+      subject.api_call :whatever, 'path'
+    end
+  end
+
+  describe ".set_rate_limits" do
+    before do
+      rate_limits = {
+        ratelimit_limit: '100',
+        ratelimit_remaining: '50',
+        ratelimit_reset: '2016-01-15T17:59:17.023Z'
+      }
+
+      Bankin.set_rate_limits(rate_limits)
+    end
+
+    it 'sets rate limits' do
+      expect(subject.rate_limits['limit']).to eq('100')
+      expect(subject.rate_limits['remaining']).to eq('50')
+      expect(subject.rate_limits['reset']).to eq('2016-01-15T17:59:17.023Z')
     end
   end
 end
