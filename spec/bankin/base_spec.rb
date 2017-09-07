@@ -25,7 +25,7 @@ describe Bankin do
 
   describe ".api_call" do
     it "should call api with params" do
-      response = RestClient::Response.create({}.to_json, {}, nil, nil)
+      response = double('response', headers: {}, empty?: true)
 
       allow(RestClient::Request).to receive(:execute) { response }
       expected_params = {
@@ -46,7 +46,9 @@ describe Bankin do
     end
 
     it "returns parsed object" do
-      response = RestClient::Response.create({ key: :val }.to_json, {}, nil, nil)
+      response = { key: :val }.to_json
+      allow(response).to receive(:headers) { {} }
+      allow(response).to receive(:empty?) { false }
 
       allow(RestClient::Request).to receive(:execute) { response }
       expect(subject.api_call(:whatever, 'whatever')).to eq({ 'key' => 'val' })
@@ -63,8 +65,7 @@ describe Bankin do
     end
 
     it 'calls .set_rate_limits method' do
-      response = RestClient::Response.create({}.to_json, {}, nil, nil)
-      allow(response).to receive(:headers) { { header: 'header' } }
+      response = double('response', headers: { header: 'header' }, empty?: true)
       allow(RestClient::Request).to receive(:execute) { response }
 
       expect(subject).to receive(:set_rate_limits).with({ header: 'header' })
