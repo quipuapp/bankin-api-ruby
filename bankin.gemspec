@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'bankin/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "bankin-api-ruby"
+  spec.name          = "bankin"
   spec.version       = Bankin::VERSION
   spec.authors       = ["Maxim Novichenko"]
   spec.email         = ["maxim@getquipu.com"]
