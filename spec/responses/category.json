@@ -1,0 +1,11 @@
+{
+  "id":321,
+  "resource_uri":"/v2/categories/321",
+  "resource_type":"category",
+  "name":"Beauty care",
+  "parent":{
+    "id":315,
+    "resource_uri":"/v2/categories/315",
+    "resource_type":"category"
+  }
+}

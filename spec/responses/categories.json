@@ -1,0 +1,19 @@
+{
+  "resources":[
+    {
+      "id":441988,
+      "resource_uri":"/v2/categories/441988",
+      "resource_type":"category",
+      "name":"VAT",
+      "parent":{
+        "id":159,
+        "resource_uri":"/v2/categories/159",
+        "resource_type":"category"
+      }
+    }
+  ],
+  "pagination":{
+    "previous_uri":null,
+    "next_uri":"/v2/categories?after=NDQxODkw&limit=12"
+  }
+}
