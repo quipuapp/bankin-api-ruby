@@ -96,6 +96,27 @@ module Bankin
           expect(@account.last_refresh_date).to eq('2016-04-06T13:53:12Z')
         end
       end
+
+      describe "category" do
+        before do
+          @category = @transaction.category
+        end
+
+        it "returns Account instance with id" do
+          expect(@category).to be_a(Category)
+          expect(@category.id).to eq(168)
+        end
+
+        it "loads other attributtes" do
+          stub_request(:get, "https://sync.bankin.com/v2/categories/168?client_id=client-id&client_secret=client-secret").
+            with(headers: { 'Bankin-Version' => '2016-01-18' }).
+            to_return(status: 200, body: response_json('category'))
+
+          expect(@category).to be_a(Category)
+          expect(@category.id).to eq(168)
+          expect(@category.name).to eq('Beauty care')
+        end
+      end
     end
   end
 end

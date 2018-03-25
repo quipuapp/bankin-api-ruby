@@ -6,6 +6,7 @@ module Bankin
       :updated_at, :currency_code, :is_deleted
 
     has_resource :account, 'Account'
+    has_resource :category, 'Category'
 
     def self.list(token, options = {})
       response = Bankin.api_call(:get, RESOURCE_PATH, options, token)
