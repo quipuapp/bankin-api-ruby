@@ -4,6 +4,8 @@ module Bankin
 
     has_fields :id, :name
 
+    has_resource :parent, 'Category'
+
     def self.list(options = {})
       response = Bankin.api_call(:get, RESOURCE_PATH, options)
       Collection.new(response, self)

@@ -38,5 +38,36 @@ module Bankin
         end
       end
     end
+
+    describe "related resources" do
+      before do
+        stub_request(:get, "https://sync.bankin.com/v2/categories/321?client_id=client-id&client_secret=client-secret").
+          with(headers: { 'Bankin-Version' => '2016-01-18' }).
+          to_return(status: 200, body: response_json('category'))
+
+        @category = Bankin::Category.get(321)
+      end
+
+      describe "parent" do
+        before do
+          @parent = @category.parent
+        end
+
+        it "returns Category instance with id" do
+          expect(@parent).to be_a(Category)
+          expect(@parent.id).to eq(315)
+        end
+
+        it "loads other attributtes" do
+          stub_request(:get, "https://sync.bankin.com/v2/categories/315?client_id=client-id&client_secret=client-secret").
+            with(headers: { 'Bankin-Version' => '2016-01-18' }).
+            to_return(status: 200, body: response_json('category'))
+
+          expect(@parent).to be_a(Category)
+          expect(@parent.id).to eq(315)
+          expect(@parent.name).to eq('Beauty care')
+        end
+      end
+    end
   end
 end
