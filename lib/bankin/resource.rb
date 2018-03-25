@@ -51,7 +51,7 @@ module Bankin
       collections.each do |collection|
         next unless data[collection[:name].to_s]
         klass = Object.const_get("Bankin::#{collection[:klass]}")
-        arr = data[collection[:name].to_s].map { |item | klass.new(item, @token) }
+        arr = data[collection[:name].to_s].map { |item| klass.new(item, @token) }
         instance_variable_set("@#{collection[:name]}", arr)
         instance_variable_set("@#{collection[:name]}_ids", arr.map(&:id))
       end
