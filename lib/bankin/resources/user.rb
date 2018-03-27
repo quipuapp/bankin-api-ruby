@@ -13,6 +13,8 @@ module Bankin
     auth_delegate :updated_transactions, class: 'Transaction', method: :list_updated
     auth_delegate :transactions, class: 'Transaction', method: :list
     auth_delegate :transaction, class: 'Transaction', method: :get
+    auth_delegate :categories, class: 'Category', method: :list
+    auth_delegate :category, class: 'Category', method: :get
 
     def delete(password)
       Bankin.api_call(:delete, resource_uri, { password: password })
