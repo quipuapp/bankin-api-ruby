@@ -30,6 +30,12 @@ module Bankin
       url_parts.join
     end
 
+    def fill_in_otp_url
+      response = Bankin.api_call(:get, "/v2/connect/items/sync?item_id=#{id}", {}, @token)
+
+      response['redirect_url']
+    end
+
     def self.connect_url(token, bank_id, redirect_url = nil)
       url_parts = [
         Bankin.const_get(:BASE_URL),
