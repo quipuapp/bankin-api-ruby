@@ -3,7 +3,7 @@ require 'json'
 
 module Bankin
   BASE_URL = 'https://sync.bankin.com'
-  API_VERSION = '2016-01-18'
+  API_VERSION = '2018-06-15'
   RATELIMIT_FIELDS = %w(limit remaining reset)
 
   class << self
@@ -36,7 +36,7 @@ module Bankin
       url = Bankin.const_get(:BASE_URL) + path
 
       logg("==========")
-      logg("#{method} #{url}")
+      logg("#{method.upcase} #{url}")
       logg(params)
 
       request_params = {
