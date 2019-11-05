@@ -22,8 +22,22 @@ module Bankin
       yield(configuration)
     end
 
+    def logg(msg)
+      return unless msg.present?
+
+      puts(msg)
+
+      Logger
+        .new("/mnt/quipuapp/releases/bankin-api-ruby/log/api.log")
+        .info(msg)
+    end
+
     def api_call(method, path, params = {}, token = nil)
       url = Bankin.const_get(:BASE_URL) + path
+
+      logg("==========")
+      logg("#{method} #{url}")
+      logg(params)
 
       request_params = {
         method: method,
