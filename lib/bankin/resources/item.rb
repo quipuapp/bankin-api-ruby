@@ -15,7 +15,7 @@ module Bankin
       Bankin.api_call(:post, "#{resource_uri}/refresh", {}, @token)
     end
 
-    def get_status
+    def refresh_status
       Bankin.api_call(:get, "#{resource_uri}/refresh/status", {}, @token)
     end
 

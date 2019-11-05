@@ -58,7 +58,7 @@ module Bankin
       end
     end
 
-    describe "#get_status" do
+    describe "#refresh_status" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/items/187791/refresh/status?client_id=client-id&client_secret=client-secret").
           with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
@@ -66,7 +66,7 @@ module Bankin
 
         @item = Item.new('resource_uri' => '/v2/items/187791')
         @item.instance_variable_set(:@token, 'test-token')
-        @status = @item.get_status
+        @status = @item.refresh_status
       end
 
       it "return status of Item using resource_uri" do
