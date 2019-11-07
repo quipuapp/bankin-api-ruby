@@ -13,7 +13,6 @@ module Bankin
       @configuration ||= Configuration.new
     end
 
-
     def rate_limits
       @rate_limits ||= Hash[RATELIMIT_FIELDS.map { |f| [f, nil] }]
     end
@@ -22,22 +21,15 @@ module Bankin
       yield(configuration)
     end
 
-    def logg(msg)
-      return unless msg.present?
-
-      puts(msg)
-
-      Logger
-        .new("/mnt/quipuapp/releases/bankin-api-ruby/log/api.log")
-        .info(msg)
-    end
-
     def api_call(method, path, params = {}, token = nil)
       url = Bankin.const_get(:BASE_URL) + path
 
-      logg("==========")
-      logg("#{method.upcase} #{url}")
-      params.each { |k,v| logg("* #{k}: #{v}")}
+      log_message("#{method.upcase} #{url}")
+      params.each do |k, v|
+        next if k =~ /password/
+
+        log_message("* #{k}: #{v}")
+      end
 
       request_params = {
         method: method,
@@ -71,6 +63,17 @@ module Bankin
       RATELIMIT_FIELDS.each do |field|
         @rate_limits[field] = headers["ratelimit_#{field}".to_sym]
       end
+    end
+
+    def log_message(msg)
+      return unless msg.present?
+
+      log_path = Bankin.configuration.log_path
+      return unless log_path.present?
+
+      Logger
+        .new(log_path)
+        .info(msg)
     end
   end
 end
