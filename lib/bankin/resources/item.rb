@@ -19,15 +19,13 @@ module Bankin
       Bankin.api_call(:get, "#{resource_uri}/refresh/status", {}, @token)
     end
 
-    def edit_url(redirect_url = nil)
-      url_parts = [
-        Bankin.const_get(:BASE_URL),
-        resource_uri,
-        "/edit?client_id=#{Bankin.configuration.client_id}",
-        "&access_token=#{@token}"
-      ]
-      url_parts << "&redirect_url=#{redirect_url}" if redirect_url
-      url_parts.join
+    def edit_url
+      Bankin.api_call(
+        :get,
+        "/v2/connect/items/edit/url",
+        { item_id: id },
+        @token
+      )['redirect_url']
     end
 
     def fill_in_otp_url
@@ -36,6 +34,16 @@ module Bankin
       response['redirect_url']
     end
 
+    def self.add_url(token, redirect_url, params)
+      Bankin.api_call(
+        :get,
+        "/v2/connect/items/add/url",
+        params.merge(redirect_url: redirect_url),
+        token
+      )['redirect_url']
+    end
+
+    # TODO this disappears
     def self.connect_url(token, bank_id, redirect_url = nil)
       url_parts = [
         Bankin.const_get(:BASE_URL),

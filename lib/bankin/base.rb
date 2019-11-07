@@ -37,7 +37,7 @@ module Bankin
 
       logg("==========")
       logg("#{method.upcase} #{url}")
-      logg(params)
+      params.each { |k,v| logg("* #{k}: #{v}")}
 
       request_params = {
         method: method,
