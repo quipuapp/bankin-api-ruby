@@ -109,13 +109,6 @@ module Bankin
       end
     end
 
-    describe ".connect_url" do
-      it "returns correct url" do
-        url = Bankin::Item.connect_url('test-token', 408, 'redirect-url')
-        expect(url).to eq('https://sync.bankin.com/v2/items/connect?client_id=client-id&bank_id=408&access_token=test-token&redirect_url=redirect-url')
-      end
-    end
-
     describe ".list" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/items?client_id=client-id&client_secret=client-secret").

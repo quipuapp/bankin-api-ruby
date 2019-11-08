@@ -46,19 +46,6 @@ module Bankin
       )['redirect_url']
     end
 
-    # TODO this disappears
-    def self.connect_url(token, bank_id, redirect_url = nil)
-      url_parts = [
-        Bankin.const_get(:BASE_URL),
-        RESOURCE_PATH,
-        "/connect?client_id=#{Bankin.configuration.client_id}",
-        "&bank_id=#{bank_id}",
-        "&access_token=#{token}"
-      ]
-      url_parts << "&redirect_url=#{redirect_url}" if redirect_url
-      url_parts.join
-    end
-
     def self.list(token, options = {})
       response = Bankin.api_call(:get, RESOURCE_PATH, options, token)
       Collection.new(response, self, token)
