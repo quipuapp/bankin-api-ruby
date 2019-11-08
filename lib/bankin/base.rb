@@ -66,10 +66,10 @@ module Bankin
     end
 
     def log_message(msg)
-      return unless msg.present?
+      return if msg.nil? || msg.empty?
 
       log_path = Bankin.configuration.log_path
-      return unless log_path.present?
+      return if log_path.nil? || log_path.empty?
 
       Logger
         .new(log_path)

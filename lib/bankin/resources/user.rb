@@ -19,8 +19,7 @@ module Bankin
     end
 
     def add_item_url(redirect_url = nil, params = {})
-      authenticate unless token.present?
-
+      authenticate if token.nil?
       Item.add_url(token, redirect_url, params)
     end
 

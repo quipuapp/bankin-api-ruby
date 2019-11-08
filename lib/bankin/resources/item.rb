@@ -29,9 +29,12 @@ module Bankin
     end
 
     def fill_in_otp_url
-      response = Bankin.api_call(:get, "/v2/connect/items/sync?item_id=#{id}", {}, @token)
-
-      response['redirect_url']
+      Bankin.api_call(
+        :get,
+        "/v2/connect/items/sync?item_id=#{id}",
+        {},
+        @token
+      )['redirect_url']
     end
 
     def self.add_url(token, redirect_url, params)
