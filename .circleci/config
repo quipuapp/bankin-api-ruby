@@ -1,0 +1,50 @@
+version: 2.1
+
+executors:
+  gem-executor:
+    working_directory: ~/tmp/gem
+    docker:
+      - image: circleci/ruby:2.4.1
+    environment:
+      TZ: "Europe/Madrid"
+
+jobs:
+  build-test-gem:
+    executor: gem-executor
+    steps:
+      - checkout
+
+      - run:
+          name: Update bundler
+          command: gem install bundler
+
+      - restore_cache:
+          keys:
+            - bankin-api-rubybundle-v2-{{ checksum "Gemfile.lock" }}
+            - bankin-api-rubybundle-v2-
+
+      - run: bundle install
+
+      - save_cache:
+          key: bankin-api-rubybundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Precompile assets
+          command: RAILS_ENV=test bundle exec rails assets:precompile --trace
+
+      - save_cache:
+          key: bankin-api-rubyassets-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - public/assets
+            - tmp/cache/assets/sprockets
+
+      - run:
+          name: Run rspec
+          command: RAILS_ENV=test bundle exec rspec spec/
+
+workflows:
+  build-test-gem:
+    jobs:
+      - build-test-gem
