@@ -20,25 +20,15 @@ jobs:
 
       - restore_cache:
           keys:
-            - bankin-api-rubybundle-v2-{{ checksum "Gemfile.lock" }}
-            - bankin-api-rubybundle-v2-
+            - bankin-api-ruby-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - bankin-api-ruby-bundle-v2-
 
       - run: bundle install
 
       - save_cache:
-          key: bankin-api-rubybundle-v2-{{ checksum "Gemfile.lock" }}
+          key: bankin-api-ruby-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-
-      - run:
-          name: Precompile assets
-          command: RAILS_ENV=test bundle exec rails assets:precompile --trace
-
-      - save_cache:
-          key: bankin-api-rubyassets-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - public/assets
-            - tmp/cache/assets/sprockets
 
       - run:
           name: Run rspec
