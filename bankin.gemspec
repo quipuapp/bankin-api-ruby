@@ -6,7 +6,7 @@ require 'bankin/version'
 Gem::Specification.new do |spec|
   spec.name          = "bankin-api-ruby"
   spec.version       = Bankin::VERSION
-  spec.authors       = ["Maxim Novichenko"]
+  spec.authors       = ["Maxim Novichenko", "Albert Bellonch"]
   spec.email         = ["maxim@getquipu.com"]
 
   spec.summary       = "Ruby client for the Bankin' API"
