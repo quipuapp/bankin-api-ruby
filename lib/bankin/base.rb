@@ -68,12 +68,10 @@ module Bankin
     def log_message(msg)
       return if msg.nil? || msg.empty?
 
-      log_path = Bankin.configuration.log_path
-      return if log_path.nil? || log_path.empty?
+      logger = Bankin.configuration.logger
+      return if logger.nil?
 
-      Logger
-        .new(log_path)
-        .info(msg)
+      logger.info(msg)
     end
   end
 end

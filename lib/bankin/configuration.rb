@@ -1,5 +1,5 @@
 module Bankin
   class Configuration
-    attr_accessor :client_id, :client_secret, :log_path
+    attr_accessor :client_id, :client_secret, :logger
   end
 end

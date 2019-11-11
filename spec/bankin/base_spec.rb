@@ -110,47 +110,32 @@ describe Bankin do
     end
 
     context "with a non-empty message" do
-      context "with a nil Bankin.configuration.log_path" do
+      context "with a nil Bankin.configuration.logger" do
         before do
-          allow(Bankin).to receive_message_chain(:configuration, :log_path) {
+          allow(Bankin).to receive_message_chain(:configuration, :logger) {
             nil
           }
         end
 
         it "does not call the logger" do
-          expect(Logger).not_to receive(:new)
+          expect(Bankin.configuration.logger).not_to receive(:info)
 
           subject.log_message("cucamonga")
         end
       end
 
-      context "with an empty Bankin.configuration.log_path" do
+      context "with a set-up logger" do
         before do
-          allow(Bankin).to receive_message_chain(:configuration, :log_path) {
-            ""
-          }
-        end
+          logger = double(Logger)
+          allow(logger).to receive(:info) { }
 
-        it "does not call the logger" do
-          expect(Logger).not_to receive(:new)
-
-          subject.log_message("cucamonga")
-        end
-      end
-
-      context "with a set-up log path" do
-        before do
-          allow(Bankin).to receive_message_chain(:configuration, :log_path) {
-            "/road/to/panxa-del-bou"
+          allow(Bankin).to receive_message_chain(:configuration, :logger) {
+            logger
           }
         end
 
         it "calls the logger properly" do
-          logger = double(Logger)
-          expect(logger).to receive(:info).with("cucamonga").once
-
-          expect(Logger).to receive(:new).with("/road/to/panxa-del-bou").once
-          allow(Logger).to receive(:new) { logger }
+          expect(Bankin.configuration.logger).to receive(:info).with("cucamonga").once
 
           subject.log_message("cucamonga")
         end
