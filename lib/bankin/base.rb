@@ -3,7 +3,7 @@ require 'json'
 
 module Bankin
   BASE_URL = 'https://sync.bankin.com'
-  API_VERSION = '2016-01-18'
+  API_VERSION = '2018-06-15'
   RATELIMIT_FIELDS = %w(limit remaining reset)
 
   class << self
@@ -12,7 +12,6 @@ module Bankin
     def configuration
       @configuration ||= Configuration.new
     end
-
 
     def rate_limits
       @rate_limits ||= Hash[RATELIMIT_FIELDS.map { |f| [f, nil] }]
@@ -24,6 +23,13 @@ module Bankin
 
     def api_call(method, path, params = {}, token = nil)
       url = Bankin.const_get(:BASE_URL) + path
+
+      log_message("#{method.upcase} #{url}")
+      params.each do |k, v|
+        next if k =~ /password/
+
+        log_message("* #{k}: #{v}")
+      end
 
       request_params = {
         method: method,
@@ -57,6 +63,15 @@ module Bankin
       RATELIMIT_FIELDS.each do |field|
         @rate_limits[field] = headers["ratelimit_#{field}".to_sym]
       end
+    end
+
+    def log_message(msg)
+      return if msg.nil? || msg.empty?
+
+      logger = Bankin.configuration.logger
+      return if logger.nil?
+
+      logger.info(msg)
     end
   end
 end

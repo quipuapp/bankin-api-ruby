@@ -1,52 +1,1551 @@
 {
+  "pagination": {
+    "next_uri": "/v2/banks?after=MzUw&limit=50",
+    "previous_uri": null
+  },
   "resources": [
     {
-      "id": 59,
-      "name": "Crédit Agricole Corse",
-      "form": [
+      "country_code": "DE",
+      "parent_banks": [
         {
-          "label": "N° de Compte",
-          "type": "USER",
-          "isNum": "1",
-          "maxLength": null
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "DE",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Direct B@nking Nummer",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "PIN",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 365,
+              "name": "Hypovereinsbank Unternehmer ",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/365",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "DE",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Direct B@nking Nummer",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "PIN",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 364,
+              "name": "Hypovereinsbank Privatkunden ",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/364",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/germany/06_hbv@2x.png",
+          "name": "Hypovereinsbank (HVB)"
         },
         {
-          "label": "Code Personnel",
-          "type": "PWD",
-          "isNum": "1",
-          "maxLength": null
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "DE",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Kontonummer / Anmeldename",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "PIN",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 405,
+              "name": "DKB Privatkunden ",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/405",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/germany/04_dkb@2x.png",
+          "name": "Deutsche Kreditbank"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "DE",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Anmeldename oder Legitimations-ID",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "PIN",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 385,
+              "name": "Mittelbrandenburg - Firmenkunden",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/385",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "DE",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Anmeldename oder Legitimations-ID",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "PIN",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 382,
+              "name": "Berlin - Privatkunden",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/382",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "DE",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Anmeldename oder Legitimations-ID",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "PIN",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 380,
+              "name": "K\u00f6lnbonn - Privatkunden",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/380",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/germany/05_sparkasse@2x.png",
+          "name": "Sparkasse"
         }
-      ],
-      "country_code": "FR",
-      "automatic_refresh": true,
-      "resource_uri": "/v2/banks/59",
-      "resource_type": "bank"
+      ]
     },
     {
-      "id": 64,
-      "name": "Crédit Agricole Languedoc",
-      "form": [
+      "country_code": "GB",
+      "parent_banks": [
         {
-          "label": "N° de Compte",
-          "type": "USER",
-          "isNum": "1",
-          "maxLength": null
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Username",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Password",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Answer to your memorable question",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 392,
+              "name": "First Direct",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/392",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/uk/07_FirstDirect@2x.png",
+          "name": "First Direct"
         },
         {
-          "label": "Code Personnel",
-          "type": "PWD",
-          "isNum": "1",
-          "maxLength": null
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Username",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Password",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Memorable Information",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 353,
+              "name": "Bank of Scotland Personal",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/353",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/uk/13_bank-of-scotland@2x.png",
+          "name": "Bank of Scotland"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "User ID",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Date of Birth *AND* last 4 digits of the contract # (DDMMYYYY) ",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Your 365 PIN word",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 396,
+              "name": "Bank of Ireland Personal Banking",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/396",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://s3-eu-west-1.amazonaws.com/web.bankin.com/img/banks-logo/uk/14_bank-of-ireland%402x.png",
+          "name": "Bank of Ireland"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Credit card services username",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Internet PIN",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Internet password",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 404,
+              "name": "NatWest Credit Card Services",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/404",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Customer Number",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "PIN",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Password",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 356,
+              "name": "Natwest Business",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/356",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Customer Number",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "PIN",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Password",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 355,
+              "name": "Natwest Personal",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/355",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/uk/09_Natwest@2x.png",
+          "name": "Natwest"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": false,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "User ID",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Memorable Answer",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Password",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 361,
+              "name": "HSBC UK",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/361",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/uk/03_HSBC@2x.png",
+          "name": "HSBC UK"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Username or ID number",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Passcode",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Memorable word",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 391,
+              "name": "MyBarclayCard UK",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/391",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/uk/05_barclays@2x.png",
+          "name": "Barclays UK"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Username",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Password",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Memorable Information",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 352,
+              "name": "Halifax",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/352",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/uk/11_Halifax@2x.png",
+          "name": "Halifax"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "GB",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Customer Number",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Birthdate (DDMMYYYY)",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Passnumber & Memorable Data",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 357,
+              "name": "Nationwide",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/357",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/uk/06_nationwide@2x.png",
+          "name": "Nationwide"
         }
-      ],
+      ]
+    },
+    {
       "country_code": "FR",
-      "automatic_refresh": true,
-      "resource_uri": "/v2/banks/64",
-      "resource_type": "bank"
+      "parent_banks": [
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Identifiant ('VOTRE-ENTREPRISE-1234')",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Cl\u00e9 secr\u00e8te ('123456789123')",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 421,
+              "name": "Qonto",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/421",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "",
+          "name": "Qonto"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Identifiant client",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Code confidentiel",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 401,
+              "name": "Banque BCP",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/401",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Banque BCP"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "1",
+                  "label": "Num\u00e9ro client",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Code secret",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 416,
+              "name": "BNP Paribas Priv\u00e9e",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/416",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": " Num\u00e9ro client",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Mot de passe (6 chiffres)",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 350,
+              "name": "BNP Guyane",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/350",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/france/12_BNPParisbasParticulier@2x.png",
+          "name": "BNP"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Votre identifiant web",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Votre code d'acc\u00e8s",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 409,
+              "name": "Compte Nickel",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/409",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Compte Nickel"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "1",
+                  "label": "Mon num\u00e9ro de t\u00e9l\u00e9phone",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Votre code secret \u00e0 4 chiffres",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 428,
+              "name": "Shine",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/428",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Shine"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Votre identifiant",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Votre mot de passe",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 425,
+              "name": "Banque Casino",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/425",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Banque Casino"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Identifiant",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Mot de passe",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 424,
+              "name": "Banque Transatlantique",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/424",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "",
+          "name": "Banque Transatlantique"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Email",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Password",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 413,
+              "name": "N26 (Number 26)",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/413",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/neo/04N26@2x.png",
+          "name": "N26 (Number 26)"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Identifiant client",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Code confidentiel",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 400,
+              "name": "Banque Palatine Particuliers",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/400",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Identifiant",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Mot de passe",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 388,
+              "name": "Bq. Palatine - Entreprises & Prof. Immobili\u00e8res",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/388",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Banque Palatine"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Num\u00e9ro de t\u00e9l\u00e9phone",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Code \u00e0 4 chiffres",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 422,
+              "name": "Revolut",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/422",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/neo/01Revolut%402x.png",
+          "name": "Revolut"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Votre identifiant",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Votre mot de passe",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 423,
+              "name": "C-Zam",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/423",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "",
+          "name": "C-Zam"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "1",
+                  "label": "Identifiant client",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Num\u00e9ro d'usager",
+                  "maxLength": null,
+                  "type": "PWD2"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Code confidentiel",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 417,
+              "name": "Caisse d'Epargne Entreprises (CENET)",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/417",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/france/04_CaisseEpargne@2x.png",
+          "name": "Caisse Epargne"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "E-mail",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Num\u00e9ro d'entreprise",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Mot de passe",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 418,
+              "name": "Natixis Inter\u00e9pargne (Mail & N\u00b0 d'entreprise)",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/418",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Num\u00e9ro d'entreprise",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Code serveur",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Mot de passe",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 411,
+              "name": "Natixis Inter\u00e9pargne (N\u00b0 d'entreprise)",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/411",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "E-mail",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Mot de passe",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 410,
+              "name": "Natixis Inter\u00e9pargne (E-mail)",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/410",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Natixis"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "1",
+                  "label": "Identifiant",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Mot de passe",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 420,
+              "name": "Orange Bank",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/420",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Orange Bank"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Votre Identifiant Internet",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Votre code secret (6 chiffres)",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 414,
+              "name": "Carrefour Banque",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/414",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Carrefour Banque"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "E-mail",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Mot de passe",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 431,
+              "name": "Lunchr",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/431",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Lunchr"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "ID",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "PWD",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 408,
+              "name": "Simulator",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/408",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "",
+          "name": "Simulator"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Email",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Password",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 419,
+              "name": "Yomoni",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/419",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Yomoni"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Email d'identification",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Mot de passe",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 412,
+              "name": "Unilend",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/412",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Unilend"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "FR",
+              "form": [
+                {
+                  "isNum": "1",
+                  "label": "Votre identifiant (9 chiffres)",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Votre code d'acc\u00e8s (5 chiffres)",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 415,
+              "name": "Oney Banque",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/415",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": null,
+          "name": "Oney Banque"
+        }
+      ]
+    },
+    {
+      "country_code": "ES",
+      "parent_banks": [
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "ES",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Pasaporte",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Clave de acceso",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 351,
+              "name": "Santander Particulares Pasaporte",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/351",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/spain/03_Santander@2x.png",
+          "name": "Santander ES"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "ES",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Usuario",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Contrase\u00f1a",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 367,
+              "name": "Bankinter Empresas",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/367",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "ES",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Usuario",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Contrase\u00f1a",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 366,
+              "name": "Bankinter Particulares",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/366",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/spain/07_Bankinter@2x.png",
+          "name": "Bankinter"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "ES",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Usuario",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Clave",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 370,
+              "name": "Unicaja Particulares",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/370",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/spain/10_unicaja@2x.png",
+          "name": "Unicaja"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "ES",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Usuario (NIF / NIE)",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "1",
+                  "label": "Clave",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 374,
+              "name": "Kutxabank Particulares",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/374",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/spain/08_kutxabank@2x.png",
+          "name": "Kutxabank"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "ES",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "C\u00f3digo Identificaci\u00f3n Usuario",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Clave de Acceso",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 368,
+              "name": "Ibercaja Particulares",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/368",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/spain/09_IberCaja@2x.png",
+          "name": "Ibercaja"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "ES",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Usuario (Tarjeta secundaria)",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Contrase\u00f1a",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 427,
+              "name": "Banco Sabadell Empresas (Tarjeta secundaria)",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/427",
+              "secondary_color": null
+            },
+            {
+              "automatic_refresh": true,
+              "country_code": "ES",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Usuario (CAL)",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Contrase\u00f1a",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 426,
+              "name": "Banco Sabadell Empresas (CAL)",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/426",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://web.bankin.com/img/banks-logo/spain/01_BancoSabadell@2x.png",
+          "name": "Banco Sabadell"
+        }
+      ]
+    },
+    {
+      "country_code": "NL",
+      "parent_banks": [
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "NL",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Username",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Password",
+                  "maxLength": null,
+                  "type": "PWD"
+                }
+              ],
+              "id": 429,
+              "name": "DEGIRO",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/429",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://s3-eu-west-1.amazonaws.com/web.bankin.com/img/banks-logo/nl/02_degiro%402x.png",
+          "name": "DEGIRO"
+        },
+        {
+          "banks": [
+            {
+              "automatic_refresh": true,
+              "country_code": "NL",
+              "form": [
+                {
+                  "isNum": "0",
+                  "label": "Rekeningnummer",
+                  "maxLength": null,
+                  "type": "USER"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Pasnummer",
+                  "maxLength": null,
+                  "type": "PWD"
+                },
+                {
+                  "isNum": "0",
+                  "label": "Identificatiecode",
+                  "maxLength": null,
+                  "type": "PWD2"
+                }
+              ],
+              "id": 430,
+              "name": "ABN AMRO Bank",
+              "primary_color": null,
+              "resource_type": "bank",
+              "resource_uri": "/v2/banks/430",
+              "secondary_color": null
+            }
+          ],
+          "logo_url": "https://s3-eu-west-1.amazonaws.com/web.bankin.com/img/banks-logo/nl/01_abn-amro%402x.png",
+          "name": "ABN AMRO Bank"
+        }
+      ]
     }
-  ],
-  "pagination": {
-    "previous_uri": null,
-    "next_uri": "/v2/banks?after=NTk%3D&limit=100"
-  }
+  ]
 }

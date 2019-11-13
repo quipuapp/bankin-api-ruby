@@ -6,58 +6,62 @@ module Bankin
       configure_bankin
     end
 
-    describe ".create" do
+    describe "#delete" do
       before do
-        stub_request(:post, "https://sync.bankin.com/v2/users?client_id=client-id&client_secret=client-secret&email=test@example.com&password=testpassword").
-          with(headers: { 'Bankin-Version' => '2016-01-18' }).
-          to_return(status: 200, body: response_json('user'))
-
-        @user = User.create('test@example.com', 'testpassword')
-      end
-
-      it "returns instance of User with correct attributes" do
-        expect(@user).to be_a(User)
-        expect(@user.uuid).to eq('79c8961c-bdf7-11e5-88a3-4f2c2aec0665')
-        expect(@user.email).to eq('test@example.com')
-      end
-    end
-
-
-    describe ".athenticate" do
-      before do
-        stub_request(:post, "https://sync.bankin.com/v2/authenticate?client_id=client-id&client_secret=client-secret&email=test@example.com&password=testpassword").
-          with(headers: { 'Bankin-Version' => '2016-01-18' }).
-          to_return(status: 200, body: response_json('authenticate'))
-
-        @user = User.authenticate('test@example.com', 'testpassword')
-      end
-
-      it "returns instance of User with correct attributes and token" do
-        expect(@user).to be_a(User)
-        expect(@user.uuid).to eq('c2a26c9e-dc23-4f67-b887-bbae0f26c415')
-        expect(@user.email).to eq('test@example.com')
-        expect(@user.token).to eq('.....')
-      end
-    end
-
-    describe ".delete_all" do
-      before do
-        stub_request(:delete, "https://sync.bankin.com/v2/users?client_id=client-id&client_secret=client-secret").
-          with(headers: { 'Bankin-Version' => '2016-01-18' }).
+        stub_request(:delete, "https://sync.bankin.com/v2/user-uri?client_id=client-id&client_secret=client-secret&password=test-password").
+          with(headers: { 'Bankin-Version' => '2018-06-15' }).
           to_return(status: 204)
+
+        @user = User.new({ 'uuid' => 'test-uuid', 'email' => 'test@example.com', 'resource_uri' => '/v2/user-uri' })
+        @user.token = 'test-token'
       end
 
       it "uses correct url and not fails at least" do
         expect {
-          User.delete_all
+          @user.delete('test-password')
         }.to_not raise_error
+      end
+    end
+
+    describe "#add_item_url" do
+      before do
+        @user = User.new({})
+        @user.token = 'test-token'
+      end
+
+      it "calls Item.add_url with correct arguments" do
+        expect(Item).to receive(:add_url).with('test-token', 'redirect-url', :los_params)
+
+        @user.add_item_url('redirect-url', :los_params)
+      end
+    end
+
+    describe "#item_connect_url" do
+      it "calls Item.connect_url with correct arguments" do
+        user = User.new({})
+        user.token = 'test-token'
+
+        expect(Item).to receive(:connect_url).with('test-token', 408, 'redirect-url')
+
+        user.item_connect_url(408, 'redirect-url')
+      end
+    end
+
+    describe "#pro_confirmation_url" do
+      it "calls Item.pro_confirmation_url with correct arguments" do
+        user = User.new({})
+        user.token = 'test-token'
+
+        expect(Item).to receive(:pro_confirmation_url).with('test-token')
+
+        user.pro_confirmation_url
       end
     end
 
     describe ".list" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/users?client_id=client-id&client_secret=client-secret").
-          with(headers: { 'Bankin-Version' => '2016-01-18' }).
+          with(headers: { 'Bankin-Version' => '2018-06-15' }).
           to_return(status: 200, body: response_json('users'))
 
         @users = User.list
@@ -72,29 +76,50 @@ module Bankin
       end
     end
 
-    describe "#delete" do
+    describe ".delete_all" do
       before do
-        stub_request(:delete, "https://sync.bankin.com/v2/user-uri?client_id=client-id&client_secret=client-secret&password=test-password").
-          with(headers: { 'Bankin-Version' => '2016-01-18' }).
+        stub_request(:delete, "https://sync.bankin.com/v2/users?client_id=client-id&client_secret=client-secret").
+          with(headers: { 'Bankin-Version' => '2018-06-15' }).
           to_return(status: 204)
-
-        @user = User.new({ 'uuid' => 'test-uuid', 'email' => 'test@example.com', 'resource_uri' => '/v2/user-uri' })
-        @user.token = 'test-token'
       end
 
       it "uses correct url and not fails at least" do
         expect {
-          @user.delete('test-password')
+          User.delete_all
         }.to_not raise_error
       end
     end
 
-    describe "#item_connect_url" do
-      it "calls Item.connect_url with correct arguments" do
-        @user = User.new({})
-        @user.token = 'test-token'
-        expect(Item).to receive(:connect_url).with('test-token', 408, 'redirect-url')
-        @user.item_connect_url(408, 'redirect-url')
+    describe ".create" do
+      before do
+        stub_request(:post, "https://sync.bankin.com/v2/users?client_id=client-id&client_secret=client-secret&email=test@example.com&password=testpassword").
+          with(headers: { 'Bankin-Version' => '2018-06-15' }).
+          to_return(status: 200, body: response_json('user'))
+
+        @user = User.create('test@example.com', 'testpassword')
+      end
+
+      it "returns instance of User with correct attributes" do
+        expect(@user).to be_a(User)
+        expect(@user.uuid).to eq('79c8961c-bdf7-11e5-88a3-4f2c2aec0665')
+        expect(@user.email).to eq('test@example.com')
+      end
+    end
+
+    describe ".authenticate" do
+      before do
+        stub_request(:post, "https://sync.bankin.com/v2/authenticate?client_id=client-id&client_secret=client-secret&email=test@example.com&password=testpassword").
+          with(headers: { 'Bankin-Version' => '2018-06-15' }).
+          to_return(status: 200, body: response_json('authenticate'))
+
+        @user = User.authenticate('test@example.com', 'testpassword')
+      end
+
+      it "returns instance of User with correct attributes and token" do
+        expect(@user).to be_a(User)
+        expect(@user.uuid).to eq('c2a26c9e-dc23-4f67-b887-bbae0f26c415')
+        expect(@user.email).to eq('test@example.com')
+        expect(@user.token).to eq('.....')
       end
     end
 
@@ -107,7 +132,7 @@ module Bankin
       describe "items" do
         before do
           stub_request(:get, "https://sync.bankin.com/v2/items?client_id=client-id&client_secret=client-secret").
-            with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+            with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('items'))
 
           @items = @user.items
@@ -125,7 +150,7 @@ module Bankin
       describe "item" do
         before do
           stub_request(:get, "https://sync.bankin.com/v2/items/187791?client_id=client-id&client_secret=client-secret").
-            with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+            with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('item'))
 
           @item = @user.item(187791)
@@ -141,7 +166,7 @@ module Bankin
       describe "accounts" do
         before do
           stub_request(:get, "https://sync.bankin.com/v2/accounts?client_id=client-id&client_secret=client-secret").
-            with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+            with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('accounts'))
 
           @accounts = @user.accounts
@@ -159,7 +184,7 @@ module Bankin
       describe "account" do
         before do
           stub_request(:get, "https://sync.bankin.com/v2/accounts/2341501?client_id=client-id&client_secret=client-secret").
-            with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+            with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('account'))
 
           @account = @user.account(2341501)
@@ -178,7 +203,7 @@ module Bankin
       describe "transactions" do
         before do
           stub_request(:get, "https://sync.bankin.com/v2/transactions?client_id=client-id&client_secret=client-secret").
-            with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+            with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('transactions'))
 
           @transactions = @user.transactions
@@ -196,7 +221,7 @@ module Bankin
       describe "updated_transactions" do
         before do
           stub_request(:get, "https://sync.bankin.com/v2/transactions/updated?client_id=client-id&client_secret=client-secret").
-            with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+            with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('transactions'))
 
           @transactions = @user.updated_transactions
@@ -214,7 +239,7 @@ module Bankin
       describe "transaction" do
         before do
           stub_request(:get, "https://sync.bankin.com/v2/transactions/1000013102238?client_id=client-id&client_secret=client-secret").
-            with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+            with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('transaction'))
 
           @transaction = @user.transaction(1000013102238)

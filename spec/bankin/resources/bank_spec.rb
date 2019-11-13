@@ -9,7 +9,7 @@ module Bankin
     describe ".get" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/banks/64?client_id=client-id&client_secret=client-secret").
-          with(headers: { 'Bankin-Version'=>'2016-01-18' }).
+          with(headers: { 'Bankin-Version'=>'2018-06-15' }).
           to_return(status: 200, body: response_json('bank'))
 
         @bank = Bank.get(64)
@@ -27,7 +27,7 @@ module Bankin
     describe ".list" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/banks?client_id=client-id&client_secret=client-secret").
-          with(headers: { 'Bankin-Version'=>'2016-01-18' }).
+          with(headers: { 'Bankin-Version'=>'2018-06-15' }).
           to_return(status: 200, body: response_json('banks'))
 
         @banks = Bank.list
@@ -35,7 +35,7 @@ module Bankin
 
       it "returns collection with Bank elements" do
         expect(@banks).to be_a(Collection)
-        expect(@banks.size).to eq(2)
+        expect(@banks.size).to eq(50)
         @banks.each do |bank|
           expect(bank).to be_a(Bank)
         end

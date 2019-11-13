@@ -32,7 +32,7 @@ describe Bankin do
         method: :somemethod,
         url: 'https://sync.bankin.com/somepath',
         headers: {
-          'Bankin-Version': '2016-01-18',
+          'Bankin-Version': '2018-06-15',
           params: {
             client_id: '123456789',
             client_secret: 'client-secret',
@@ -58,7 +58,7 @@ describe Bankin do
       configure_bankin
 
       stub_request(:get, "https://sync.bankin.com/v2/not-found?client_id=client-id&client_secret=client-secret").
-        with(headers: { 'Bankin-Version' => '2016-01-18' }).
+        with(headers: { 'Bankin-Version' => '2018-06-15' }).
         to_return(status: 404, body: { type: 'not-found', message: 'resource not found' }.to_json)
 
       expect { subject.api_call(:get, '/v2/not-found') }.to raise_error(Bankin::Error)
@@ -89,6 +89,57 @@ describe Bankin do
       expect(subject.rate_limits['limit']).to eq('100')
       expect(subject.rate_limits['remaining']).to eq('50')
       expect(subject.rate_limits['reset']).to eq('2016-01-15T17:59:17.023Z')
+    end
+  end
+
+  describe ".log_message" do
+    context "without a message" do
+      it "does not call the logger" do
+        expect(Logger).not_to receive(:new)
+
+        subject.log_message(nil)
+      end
+    end
+
+    context "with an empty message" do
+      it "does not call the logger" do
+        expect(Logger).not_to receive(:new)
+
+        subject.log_message("")
+      end
+    end
+
+    context "with a non-empty message" do
+      context "with a nil Bankin.configuration.logger" do
+        before do
+          allow(Bankin).to receive_message_chain(:configuration, :logger) {
+            nil
+          }
+        end
+
+        it "does not call the logger" do
+          expect(Bankin.configuration.logger).not_to receive(:info)
+
+          subject.log_message("cucamonga")
+        end
+      end
+
+      context "with a set-up logger" do
+        before do
+          logger = double(Logger)
+          allow(logger).to receive(:info) { }
+
+          allow(Bankin).to receive_message_chain(:configuration, :logger) {
+            logger
+          }
+        end
+
+        it "calls the logger properly" do
+          expect(Bankin.configuration.logger).to receive(:info).with("cucamonga").once
+
+          subject.log_message("cucamonga")
+        end
+      end
     end
   end
 end

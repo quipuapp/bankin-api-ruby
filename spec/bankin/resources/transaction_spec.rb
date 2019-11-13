@@ -9,7 +9,7 @@ module Bankin
     describe ".get" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/transactions/1000013102238?client_id=client-id&client_secret=client-secret").
-          with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+          with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
           to_return(status: 200, body: response_json('transaction'))
 
         @transaction = Bankin::Transaction.get('test-token', 1000013102238)
@@ -31,7 +31,7 @@ module Bankin
     describe ".list" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/transactions?client_id=client-id&client_secret=client-secret").
-          with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+          with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
           to_return(status: 200, body: response_json('transactions'))
 
         @transactions = Bankin::Transaction.list('test-token')
@@ -49,7 +49,7 @@ module Bankin
     describe ".list_updated" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/transactions/updated?client_id=client-id&client_secret=client-secret").
-          with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+          with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
           to_return(status: 200, body: response_json('transactions'))
 
         @transactions = Bankin::Transaction.list_updated('test-token')
@@ -67,7 +67,7 @@ module Bankin
     describe "related resources" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/transactions/1000013102238?client_id=client-id&client_secret=client-secret").
-          with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+          with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
           to_return(status: 200, body: response_json('transaction'))
 
         @transaction = Bankin::Transaction.get('test-token', 1000013102238)
@@ -85,7 +85,7 @@ module Bankin
 
         it "loads other attributtes" do
           stub_request(:get, "https://sync.bankin.com/v2/accounts/2341501?client_id=client-id&client_secret=client-secret").
-            with(headers: { 'Bankin-Version' => '2016-01-18', 'Authorization' => 'Bearer test-token' }).
+            with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
             to_return(status: 200, body: response_json('account'))
 
           expect(@account).to be_a(Account)

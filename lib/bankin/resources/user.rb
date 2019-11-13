@@ -18,8 +18,17 @@ module Bankin
       Bankin.api_call(:delete, resource_uri, { password: password })
     end
 
+    def add_item_url(redirect_url = nil, params = {})
+      authenticate if token.nil?
+      Item.add_url(token, redirect_url, params)
+    end
+
     def item_connect_url(bank_id, redirect_url = nil)
       Item.connect_url(token, bank_id, redirect_url)
+    end
+
+    def pro_confirmation_url
+      Item.pro_confirmation_url(token)
     end
 
     def self.list(options = {})
