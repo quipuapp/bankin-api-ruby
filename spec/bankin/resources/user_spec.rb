@@ -47,6 +47,17 @@ module Bankin
       end
     end
 
+    describe "#pro_confirmation_url" do
+      it "calls Item.pro_confirmation_url with correct arguments" do
+        user = User.new({})
+        user.token = 'test-token'
+
+        expect(Item).to receive(:pro_confirmation_url).with('test-token')
+
+        user.pro_confirmation_url
+      end
+    end
+
     describe ".list" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/users?client_id=client-id&client_secret=client-secret").

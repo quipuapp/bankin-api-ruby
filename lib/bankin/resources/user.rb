@@ -27,6 +27,10 @@ module Bankin
       Item.connect_url(token, bank_id, redirect_url)
     end
 
+    def pro_confirmation_url
+      Item.pro_confirmation_url(token)
+    end
+
     def self.list(options = {})
       response = Bankin.api_call(:get, RESOURCE_PATH, options)
       Collection.new(response, self)

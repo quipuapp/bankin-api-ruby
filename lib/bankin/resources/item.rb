@@ -46,6 +46,15 @@ module Bankin
       )['redirect_url']
     end
 
+    def self.pro_confirmation_url(token)
+      Bankin.api_call(
+        :get,
+        "/v2/connect/items/pro/confirmation/url",
+        {},
+        token
+      )['redirect_url']
+    end
+
     def self.list(token, options = {})
       response = Bankin.api_call(:get, RESOURCE_PATH, options, token)
       Collection.new(response, self, token)

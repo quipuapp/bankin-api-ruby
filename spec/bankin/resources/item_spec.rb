@@ -109,6 +109,19 @@ module Bankin
       end
     end
 
+    describe ".pro_confirmation_url" do
+      before do
+        stub_request(:get, "https://sync.bankin.com/v2/connect/items/pro/confirmation/url?client_id=client-id&client_secret=client-secret").
+          with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
+          to_return(status: 200, body: response_json('item_pro_confirmation_url'))
+      end
+
+      it "returns correct url" do
+        expect(Bankin::Item.pro_confirmation_url('test-token'))
+          .to eq('https://pa.proconfirmation.url/item/whatever')
+      end
+    end
+
     describe ".list" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/items?client_id=client-id&client_secret=client-secret").
