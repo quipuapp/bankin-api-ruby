@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bankin-api-ruby (1.0.0)
+    bankin-api-ruby (1.0.1)
       rest-client (~> 2.0.2)
 
 GEM
