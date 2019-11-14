@@ -40,26 +40,6 @@ module Bankin
       end
     end
 
-    describe "#refresh_status" do
-      before do
-        stub_request(:get, "https://sync.bankin.com/v2/items/187791/refresh/status?client_id=client-id&client_secret=client-secret").
-          with(headers: { 'Bankin-Version' => '2018-06-15', 'Authorization' => 'Bearer test-token' }).
-          to_return(status: 200, body: response_json('item_status'))
-
-        @item = Item.new('resource_uri' => '/v2/items/187791')
-        @item.instance_variable_set(:@token, 'test-token')
-        @status = @item.refresh_status
-      end
-
-      it "return status of Item using resource_uri" do
-        expect(@status['status']).to eq('finished')
-        expect(@status['mfa']).to be_nil
-        expect(@status['refreshed_at']).to eq('2016-04-06T09:19:15Z')
-        expect(@status['refreshed_accounts_count']).to be_nil
-        expect(@status['total_accounts_count']).to be_nil
-      end
-    end
-
     describe "#edit_url" do
       before do
         stub_request(:get, "https://sync.bankin.com/v2/connect/items/edit/url?client_id=client-id&client_secret=client-secret&item_id=187791").
